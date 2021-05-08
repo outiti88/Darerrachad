@@ -18,7 +18,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ url('/css/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ url('/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ url('/images/logo.png') }}" />
 </head>
 
 <body>
@@ -29,7 +29,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                <img  href="{{ url('/images/logo1.png') }}" alt="logo">
               </div>
               <h4>Welcome back!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
@@ -74,27 +74,21 @@
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  @if (Route::has('password.request'))
+                      <a class="auth-link text-black" href="{{ route('password.request') }}">
+                          {{ __('Mot de passe oublié?') }}
+                      </a>
+                  @endif
                 </div>
                 <div class="my-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                 </div>
-                <div class="mb-2 d-flex">
-                  <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
-                    <i class="fab fa-facebook-f mr-2"></i>Facebook
-                  </button>
-                  <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">
-                    <i class="fab fa-google mr-2"></i>Google
-                  </button>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
-                </div>
+
               </form>
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2021  All rights reserved.</p>
           </div>
         </div>
       </div>

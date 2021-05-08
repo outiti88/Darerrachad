@@ -17,7 +17,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ url('css/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+  <link rel="shortcut icon" href="{{ url('/images/logo.png') }}" />
 </head>
 <body>
   <div class="container-scroller">

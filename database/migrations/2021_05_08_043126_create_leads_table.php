@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToCommandeTable extends Migration
+class CreateLeadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddUserIdToCommandeTable extends Migration
      */
     public function up()
     {
-        Schema::table('commandes', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
+        Schema::create('leads', function (Blueprint $table) {
+            $table->id();
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('email');
+            $table->string('phone');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class AddUserIdToCommandeTable extends Migration
      */
     public function down()
     {
-        Schema::table('commandes', function (Blueprint $table) {
-            $table->dropForeignId('commandes_user_id_foreign')->constrained();
-        });
+        Schema::dropIfExists('leads');
     }
 }
