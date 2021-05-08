@@ -42,7 +42,7 @@ class RegisterController extends Controller
     {
         $this->middleware('auth');
     }
-   /* public function __construct()
+    /* public function __construct()
     {
         $this->middleware('guest');
     }
@@ -71,28 +71,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if(empty($data['image'])) $data['image']="https://quickoo.ma/assets/img/icon4.png";
-            if(empty($data['description'])) $data['description']="Sans Description";
+        if (empty($data['image'])) $data['image'] = "https://quickoo.ma/assets/img/icon4.png";
+        if (empty($data['description'])) $data['description'] = "Sans Description";
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'description'=>$data['description'],
-            'telephone'=>$data['telephone'],
-            'adresse'=>$data['adresse'],
-            'ville'=>$data['ville'],
-            'image'=>$data['image'],
-            'n'=>$data['n'],
-            'v'=>$data['v'],
-            'nh'=>$data['nh'],
-            'vh'=>$data['vh']
-            
+            'description' => $data['description'],
+            'telephone' => $data['telephone'],
+            'adresse' => $data['adresse'],
+            'ville' => $data['ville'],
+            'image' => $data['image']
+
+
         ]);
-        if(empty($data['roles'])){
-        $role = Role::select('id')->where('name','client')->first();
-        $user->roles()->attach($role);
-        }
-        else {
+        if (empty($data['roles'])) {
+            $role = Role::select('id')->where('name', 'client')->first();
+            $user->roles()->attach($role);
+        } else {
             $user->roles()->sync($data['roles']);
         }
         //dd($user);

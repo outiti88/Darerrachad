@@ -13,7 +13,7 @@
             color: #e85f03 !important;
         }
         .page-item.active .page-link {
-            
+
             background-color: #e85f03 !important;
             border-color: #e85f03 !important;
             color: #fff !important;
@@ -37,12 +37,12 @@
                 </nav>
             </div>
         </div>
-    
+
     </div>
 </div>
 
 <div class="container-fluid">
-    
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -85,12 +85,7 @@
                             <input name="image" type="text" value="{{$user->image}}"class="form-control form-control-line">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label text-md-right">ICE</label>
-                        <div class="col-md-6">
-                            <input name="description" type="text" value="{{$user->description}}"class="form-control form-control-line">
-                        </div>
-                    </div>
+
                     <div class="form-group row">
                         <label for="roles" class="col-md-2 col-form-label text-md-right">Rôles: </label>
                         <div class="col-md-6">
@@ -102,53 +97,18 @@
                             <input type="radio" name="roles[]" value="{{$role->id}}" id="{{$role->name}}">
                             @endif
                             <label for="{{$role->name}}">
-                                @switch($role->name)
-                                    @case('client')
-                                     Collecte, Livraison
-                                        @break
-                                    @case('ecom')
-                                    Collecte, livraison, stockage
-                                        @break
-                                    @default
                                     {{$role->name}}
-                                @endswitch
                             </label>
                         </div>
                     @endforeach
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="n" class="col-md-4 col-form-label text-md-right">{{ __('Poids Normal') }}</label>
-                    <div class="col-md-2">
-                        <input id="n" type="number" class="form-control" name="n" value="{{$user->n }}"   required >
-                    </div>
-
-                    <label for="v" class="col-md-4 col-form-label text-md-right">{{ __('Poids Volumineux') }}</label>
-                    <div class="col-md-2">
-                        <input id="v" type="number" class="form-control" name="v" value="{{ $user->v}}"   required >
-                    </div>
-                
-                </div>
-
-                <div class="form-group row">
-                  
-                    <label for="nh" class="col-md-4 col-form-label text-md-right">{{ __('Poids Normal Hors Tanger') }}</label>
-                    <div class="col-md-2">
-                        <input id="nh" type="number" class="form-control" name="nh" value="{{ $user->nh}}"   required >
-                    </div>
-
-                    <label for="vh" class="col-md-4 col-form-label text-md-right">{{ __('Poids Volumineux Hors Tanger') }}</label>
-                    <div class="col-md-2">
-                        <input id="vh" type="number" class="form-control" name="vh" value="{{ $user->vh}}"   required >
-                    </div>
-                </div>
-
 
                     <button type="submit" class="btn btn-primary">Modifier</button>
                 </form>
-                  
-                     
-                  
+
+
+
                 </div>
             </div>
         </div>

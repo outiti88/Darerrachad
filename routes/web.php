@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'DashboardController@dash')->name('dashboard');
 
-Route::get('/book', 'BookController@index')->name('book.index');
+Route::get('/books', 'BookController@index')->name('book.index');
 
-Route::post('/book', 'BookController@store')->name('book.store');
+Route::post('/books', 'BookController@store')->name('book.store');
 
 
 Route::get('/leads', 'LeadController@index')->name('lead.index');
