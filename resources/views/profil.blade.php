@@ -18,7 +18,7 @@
                 </nav>
             </div>
         </div>
-  
+
     </div>
 </div>
 <!-- ============================================================== -->
@@ -41,7 +41,7 @@
                         <h4 class="card-title m-t-10">{{$user->name}}</h4>
                         <h6 class="card-subtitle">ICE: {{$user->description}}</h6>
                         <div class="row text-center justify-content-md-center">
-                        <div class="col-4"><a href="{{route('commandes.index')}}" class="link"><i class="icon-people"></i> <font class="font-medium">{{$total}} <br>Commandes</font></a></div>
+                        <div class="col-4"><a href="{{route('book.index')}}" class="link"><i class="icon-people"></i> <font class="font-medium">{{$total}} <br>Commandes</font></a></div>
                             <div class="col-4"><a href="{{route('facture.index')}}" class="link"><i class="icon-picture"></i> <font class="font-medium">{{$facture}} <br>Factures</font></a></div>
                         </div>
                     </center>
@@ -88,7 +88,7 @@
 
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required>
-    
+
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

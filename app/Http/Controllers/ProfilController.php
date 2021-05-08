@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -23,12 +23,13 @@ class ProfilController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         $user = Auth::user();
-        
-        $total =DB::table('commandes')->where('deleted_at',NULL)->where('user_id',Auth::user()->id )->count();
-        $facture = DB::table('factures')->where('user_id',Auth::user()->id )->count();
-        return view('profil')->with(['user'=> $user , 'total' => $total , 'facture' => $facture]);
+
+        $total = 0;
+        $facture = 0;
+        return view('profil')->with(['user' => $user, 'total' => $total, 'facture' => $facture]);
     }
 
     /**
@@ -40,18 +41,17 @@ class ProfilController extends Controller
      */
     public function update(Request $request, User $user)
     {
-       // dd($user);
-      // dd($request);
-       $user->name=$request->name;
-       $user->email=$request->email;
-       $user->image=$request->image;
-       $user->telephone=$request->telephone;
-       $user->adresse=$request->adresse;
-       $user->ville=$request->ville;
+        // dd($user);
+        // dd($request);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->image = $request->image;
+        $user->telephone = $request->telephone;
+        $user->adresse = $request->adresse;
+        $user->ville = $request->ville;
 
-       $user->save();
-       
-       return redirect()->route('profil.index');
+        $user->save();
+
+        return redirect()->route('profil.index');
     }
-
 }

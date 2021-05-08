@@ -7,20 +7,6 @@
 
 
 
-@section('style')
-    <style>
-        .page-link {
-            color: #e85f03 !important;
-        }
-        .page-item.active .page-link {
-            
-            background-color: #e85f03 !important;
-            border-color: #e85f03 !important;
-            color: #fff !important;
-        }
-    </style>
-@endsection
-
 
 @section('content')
 <div class="page-breadcrumb">
@@ -55,7 +41,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Utilisateurs Quickoo') }}</div>
-                
+
                 <div class="card-body" >
                     <div class="table-responsive">
                         <table class="table">
@@ -68,7 +54,7 @@
                                 @can('edit-users')
                                 <th scope="col">Action</th>
                                 @endcan
-                                
+
                               </tr>
                             </thead>
                             <tbody>
@@ -81,10 +67,10 @@
                                  @can('edit-users')
                                 <td>
                                     <a href="{{route('admin.users.edit',$user->id)}}">
-                                       <button class="btn btn-primary float-lef"><i class="mdi mdi-account-edit"></i></button>
+                                       <button class="btn btn-primary float-lef"><i class="fas fa-edit"></i></button>
                                    </a>
                                 <a class="btn btn-danger text-white m-r-5" data-toggle="modal" data-target="#FormDelete{{$user->id}}"><i class="fas fa-trash-alt"></i></a>
-                               
+
                                 <div class="modal fade" id="FormDelete{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
@@ -110,11 +96,11 @@
                                           </div>
                                         <div class="modal-footer">
                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                          
+
                                             <form action="{{route('admin.users.destroy',$user->id)}}" method="POST" class="float-left">
                                                 @csrf
                                                 @method("DELETE")
-                                                <button type="submit" class="btn btn-danger text-white m-r-5">Ok</button> 
+                                                <button type="submit" class="btn btn-danger text-white m-r-5">Ok</button>
                                             </form>
                                         </div>
                                       </div>
@@ -123,19 +109,19 @@
 
 
                                    <a href="{{route('admin.users.destroy',$user->id)}}">
-                                       
-                                       
+
+
                                    </a>
                                </td>
                                 @endcan
-                                
+
                                 </tr>
                               @endforeach
-    
+
                             </tbody>
                           </table>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
