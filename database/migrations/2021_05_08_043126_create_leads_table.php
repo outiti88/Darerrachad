@@ -19,7 +19,10 @@ class CreateLeadsTable extends Migration
             $table->string('lastName');
             $table->string('email');
             $table->string('phone');
+            $table->string('adresse');
+            $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

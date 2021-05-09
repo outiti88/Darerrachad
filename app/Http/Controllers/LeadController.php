@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LeadController extends Controller
 {
@@ -23,7 +24,12 @@ class LeadController extends Controller
      */
     public function index()
     {
+        $total = DB::table('leads')->count();
+        $leads = DB::table('leads')->where('deleted_at', NULL)->orderBy('created_at', 'DESC')->get();
 
-        return view('lead.index');
+        return view('lead.index', [
+            'leads' => $leads,
+            'total' => $total,
+        ]);
     }
 }

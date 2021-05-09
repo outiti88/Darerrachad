@@ -73,7 +73,7 @@ class BookController extends Controller
         $book->user()->associate($currentUser)->save();
         $request->session()->flash('bookAdded', $book->name);
 
-        return back();
+        return redirect()->route('book.index');
     }
 
     /**
