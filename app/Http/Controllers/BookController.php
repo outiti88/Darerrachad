@@ -77,6 +77,37 @@ class BookController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,  $id)
+    {
+
+        $book = Book::find($id);
+        $book->name = $request->name;
+        $book->type = $request->type;
+        $book->edition = $request->edition;
+        $book->theme = $request->theme;
+        $book->format = $request->format;
+        $book->paper = $request->paper;
+        $book->abstract = $request->abstract;
+        $book->category = $request->category;
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); //getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/produit/', $filename);
+            $book->image = '/uploads/produit/' . $filename;
+        }
+        $book->save();
+        $request->session()->flash('bookUpdated', $book->name);
+
+        return back();
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Book  $book
@@ -84,10 +115,7 @@ class BookController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-
         $book = DB::table('books')->where('id', $id)->first();
-        // $name = $book;
-        // $name = $name->first()->name;
         \App\Book::destroy($book->id);
         $request->session()->flash('bookDeleted', $book->name);
 

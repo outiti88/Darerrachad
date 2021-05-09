@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 class ProduitController extends Controller
 {
 
-      /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -35,32 +35,32 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $users = [] ;
+        $users = [];
         $stock = [];
-        if(!Gate::denies('ramassage-commande')) {
+        if (!Gate::denies('ramassage-commande')) {
             //session administrateur donc on affiche tous les commandes
             $total = DB::table('produits')->count();
-            $produits= DB::table('produits')->orderBy('created_at', 'DESC')->paginate(10);
-            foreach($produits as $produit){
-                if(!empty(User::find($produit->user_id)))
-                $users[] =  User::find($produit->user_id) ;
+            $produits = DB::table('produits')->orderBy('created_at', 'DESC')->paginate(10);
+            foreach ($produits as $produit) {
+                if (!empty(User::find($produit->user_id)))
+                    $users[] =  User::find($produit->user_id);
             }
             //dd($clients[0]->id);
+        } else {
+            $produits = DB::table('produits')->where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(10);
+            $total = DB::table('produits')->where('user_id', Auth::user()->id)->count();
         }
-        else{
-            $produits= DB::table('produits')->where('user_id',Auth::user()->id )->orderBy('created_at', 'DESC')->paginate(10);
-            $total =DB::table('produits')->where('user_id',Auth::user()->id )->count();
-            
-        }
-        foreach($produits as $produit){
-            $dbStock = DB::table('stocks')->where('produit_id',$produit->id)->first();
-            $stock[] =  $dbStock ;
+        foreach ($produits as $produit) {
+            $dbStock = DB::table('stocks')->where('produit_id', $produit->id)->first();
+            $stock[] =  $dbStock;
         }
 
-        return view('produit.index' , ['produits' => $produits, 
-                                    'total'=>$total,
-                                    'users'=> $users,
-                                    'stock'=>$stock]);
+        return view('produit.index', [
+            'produits' => $produits,
+            'total' => $total,
+            'users' => $users,
+            'stock' => $stock
+        ]);
     }
 
     /**
@@ -81,44 +81,39 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        if(Gate::denies('ecom')){
-           
-                return redirect('/commandes');
-            } 
-            else{
-                $produit = new Produit();
-                
-                $produit->libelle = $request->libelle;
-                $produit->prix = $request->prix;
-                $produit->categorie = $request->categorie;
-                $produit->description = $request->description;
-                $produit->reference = bin2hex(substr($produit->libelle, - strlen($produit->libelle) , 3)).date("mdis");
-                //dd($request);
-                if ($request->hasfile('photo')){
-                   //dd($request->file('photo'));
-                    $file = $request->file('photo');
-                    $extension = $file->getClientOriginalExtension(); //getting image extension
-                    $filename = time() . '.' . $extension ;
-                    $file->move('uploads/produit/',$filename);
-                    $produit->photo = $filename ;
-                }
-                else{
-                    $produit->photo =  $produit->categorie . '.png';
-                }
+        if (Gate::denies('ecom')) {
 
-                $produit->user()->associate(Auth::user())->save();
+            return redirect('/commandes');
+        } else {
+            $produit = new Produit();
 
-                $stock = new Stock();
-
-                $stock->qte = 0;
-                $stock->cmd = 0;
-                $stock->etat = "Nouveau";
-                $stock->produit()->associate($produit)->save();
-                return redirect()->route('produit.index');
+            $produit->libelle = $request->libelle;
+            $produit->prix = $request->prix;
+            $produit->categorie = $request->categorie;
+            $produit->description = $request->description;
+            $produit->reference = bin2hex(substr($produit->libelle, -strlen($produit->libelle), 3)) . date("mdis");
+            //dd($request);
+            if ($request->hasfile('photo')) {
+                //dd($request->file('photo'));
+                $file = $request->file('photo');
+                $extension = $file->getClientOriginalExtension(); //getting image extension
+                $filename = time() . '.' . $extension;
+                $file->move('uploads/produit/', $filename);
+                $produit->photo = $filename;
+            } else {
+                $produit->photo =  $produit->categorie . '.png';
             }
-            
-        
-        
+
+            $produit->user()->associate(Auth::user())->save();
+
+            $stock = new Stock();
+
+            $stock->qte = 0;
+            $stock->cmd = 0;
+            $stock->etat = "Nouveau";
+            $stock->produit()->associate($produit)->save();
+            return redirect()->route('produit.index');
+        }
     }
 
     /**
@@ -129,14 +124,15 @@ class ProduitController extends Controller
      */
     public function show(Produit $produit)
     {
-        if(Gate::denies('ramassage-commande')){
-            if($produit->user_id !== Auth::user()->id)
-            return redirect()->route('produit.index');
+        if (Gate::denies('ramassage-commande')) {
+            if ($produit->user_id !== Auth::user()->id)
+                return redirect()->route('produit.index');
         }
-        $stock = DB::table('stocks')->where('produit_id',$produit->id)->first();
-        return view('produit.show', ['produit'=>$produit ,
-                                    'stock' =>$stock
-                                    ]);
+        $stock = DB::table('stocks')->where('produit_id', $produit->id)->first();
+        return view('produit.show', [
+            'produit' => $produit,
+            'stock' => $stock
+        ]);
     }
 
     /**
@@ -159,30 +155,26 @@ class ProduitController extends Controller
      */
     public function update(Request $request, Produit $produit)
     {
-        if((!Gate::denies('ecom') && $produit->user_id !== Auth::user()->id ) || Gate::denies('gestion-stock')){
+        if ((!Gate::denies('ecom') && $produit->user_id !== Auth::user()->id) || Gate::denies('gestion-stock')) {
             return redirect()->route('produit.index');
-        }
-        else{
+        } else {
             $produit->libelle = $request->libelle;
             $produit->prix = $request->prix;
             $produit->categorie = $request->categorie;
             $produit->description = $request->description;
-            if ($request->hasfile('photo')){
-                 $file = $request->file('photo');
-                 $extension = $file->getClientOriginalExtension(); //getting image extension
-                 $filename = time() . '.' . $extension ;
-                 $file->move('uploads/produit/',$filename);
-                 $produit->photo = $filename ;
-             }
-             $produit->save();
-               
-             $request->session()->flash('produit', 'modifié');
+            if ($request->hasfile('photo')) {
+                $file = $request->file('photo');
+                $extension = $file->getClientOriginalExtension(); //getting image extension
+                $filename = time() . '.' . $extension;
+                $file->move('uploads/produit/', $filename);
+                $produit->photo = $filename;
+            }
+            $produit->save();
 
-             return redirect()->route('produit.show',['produit' => $produit->id]);
+            $request->session()->flash('produit', 'modifié');
+
+            return redirect()->route('produit.show', ['produit' => $produit->id]);
         }
-        
-        
-        dd("salut");
     }
 
     /**

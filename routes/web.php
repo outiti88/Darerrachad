@@ -19,8 +19,8 @@ Route::match(['put', 'patch'], '/profil/{user}', 'ProfilController@update')->nam
 
 Route::get('/books', 'BookController@index')->name('book.index');
 Route::post('/books', 'BookController@store')->name('book.store');
+Route::put('/books/{book}', 'BookController@update')->name('book.update');
 Route::delete('/books/{book}', 'BookController@destroy')->name('book.destroy');
-
 
 
 Route::get('/leads', 'LeadController@index')->name('lead.index');
@@ -35,6 +35,8 @@ Route::get('/{notifications}/show', 'NotificationController@show')->name('inbox.
 Route::get('/{notifications}/delete', 'NotificationController@destroy')->name('inbox.destroy');
 
 /***************************************Notification*********************** *
+
+
 
 
 
