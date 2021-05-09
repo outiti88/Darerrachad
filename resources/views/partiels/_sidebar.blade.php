@@ -2,20 +2,20 @@
     <li class="nav-item nav-profile">
       <div class="nav-link">
         <div class="profile-image">
-          <img src="images/faces/face5.jpg" alt="image"/>
+          <img src="{{Auth::user()->image}}" alt="image"/>
         </div>
         <div class="profile-name">
           <p class="name">
-            Welcome Jane
+            {{Auth::user()->name}}
           </p>
           <p class="designation">
-            Super Admin
+            {{Auth::user()->roles()->get()->pluck('name')[0]}}
           </p>
         </div>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('dashboard')}}">
         <i class="fa fa-home menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>

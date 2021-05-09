@@ -20,10 +20,12 @@
         </div>
       </li>
     </ul>
+
+
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item d-none d-lg-flex">
-        <a class="nav-link" href="#">
-          <span class="btn btn-primary">+ Create new</span>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal-4" data-whatever="@mdo">
+          <span class="btn btn-primary">+ Ajouter un Livre</span>
         </a>
       </li>
       <li class="nav-item dropdown d-none d-lg-flex">
@@ -31,19 +33,12 @@
           <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown" data-toggle="dropdown">English</span>
           <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
             <a class="dropdown-item font-weight-medium" href="#">
-              French
+              Français
             </a>
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item font-weight-medium" href="#">
-              Espanol
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-medium" href="#">
-              Latin
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item font-weight-medium" href="#">
-              Arabic
+              Arabe
             </a>
           </div>
         </div>
@@ -160,12 +155,12 @@
       </li>
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-          <img src="images/faces/face5.jpg" alt="profile"/>
+          <img src="{{Auth::user()->image}}" alt="profile"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
           <a class="dropdown-item"href="{{route('profil.index')}}">
             <i class="fas fa-cog text-primary"></i>
-            Settings
+            Profil
           </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"  href="{{ route('logout') }}"
@@ -188,3 +183,4 @@
       <span class="fas fa-bars"></span>
     </button>
   </div>
+

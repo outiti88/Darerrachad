@@ -5,8 +5,6 @@
    Gestion des Utilisateurs
 @endsection
 
-
-
 @section('style')
     <style>
         .page-link {
@@ -26,175 +24,72 @@
 
     <div class="page-header">
       <h3 class="page-title">
-        Data table
+        Gestion des livres
       </h3>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Tables</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data table</li>
+          <li class="breadcrumb-item"><a href="#">Darrerachad</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Gestion des livres</li>
         </ol>
       </nav>
     </div>
+    @if (session()->has('bookAdded'))
+        <div class="alert alert-success" role="alert">
+            Le livre {{session()->get('bookAdded')}} a été Ajouté avec succèss.
+        </div>
+    @endif
+    @if (session()->has('bookDeleted'))
+        <div class="alert alert-danger" role="alert">
+            Le livre {{session()->get('bookDeleted')}} a été Suprimé.
+        </div>
+    @endif
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Data table</h4>
+        <h4 class="card-title">Livres</h4>
         <div class="row">
           <div class="col-12">
             <div class="table-responsive">
               <table id="order-listing" class="table">
                 <thead>
                   <tr>
-                      <th>Order #</th>
-                      <th>Purchased On</th>
-                      <th>Customer</th>
-                      <th>Ship to</th>
-                      <th>Base Price</th>
-                      <th>Purchased Price</th>
-                      <th>Status</th>
+                      <th>Image #</th>
+                      <th>Nom de livre</th>
+                      <th>Categorie</th>
+                      <th>Edition</th>
+                      <th>Type</th>
+                      <th>Date de création</th>
                       <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
+                    @forelse ($books as $index => $book)
+
                   <tr>
-                      <td>1</td>
-                      <td>2012/08/03</td>
-                      <td>Edinburgh</td>
-                      <td>New York</td>
-                      <td>$1500</td>
-                      <td>$3200</td>
-                      <td>
-                        <label class="badge badge-info">On hold</label>
+                    <td class="py-1">
+                        <img src="{{$book->image}}" alt="image"/>
                       </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>2015/04/01</td>
-                      <td>Doe</td>
-                      <td>Brazil</td>
-                      <td>$4500</td>
-                      <td>$7500</td>
-                      <td>
-                        <label class="badge badge-danger">Pending</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>3</td>
-                      <td>2010/11/21</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>2016/01/12</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>5</td>
-                      <td>2017/12/28</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>6</td>
-                      <td>2000/10/30</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-info">On-hold</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>7</td>
-                      <td>2011/03/11</td>
-                      <td>Cris</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>8</td>
-                      <td>2015/06/25</td>
-                      <td>Tim</td>
-                      <td>Italy</td>
-                      <td>$6300</td>
-                      <td>$2100</td>
-                      <td>
-                        <label class="badge badge-info">On-hold</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>9</td>
-                      <td>2016/11/12</td>
-                      <td>John</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>10</td>
-                      <td>2003/12/26</td>
-                      <td>Tom</td>
-                      <td>Germany</td>
-                      <td>$1100</td>
-                      <td>$2300</td>
-                      <td>
-                        <label class="badge badge-danger">Pending</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
+                    <td>{{$book->name}}</td>
+                    <td>{{$book->category}}</td>
+                    <td>{{$book->edition}}</td>
+                    <td>{{$book->type}}</td>
+                    <td>{{$book->created_at}}</td>
+
+                    <td>
+                      <button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button>
+                      <form method="POST" action="{{route('book.destroy',['book'=> $book->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                    </form>
+
+                    </td>
+                </tr>
+                    @empty
+                    <tr>
+                        <td colspan="10" style="text-align: center">Aucun livre enregistrée!</td>
+                    </tr>
+                    @endforelse
+
                 </tbody>
               </table>
             </div>

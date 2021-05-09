@@ -24,184 +24,95 @@
 
 @section('content')
 
-    <div class="page-header">
-      <h3 class="page-title">
-        Data table
-      </h3>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Tables</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data table</li>
-        </ol>
-      </nav>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Data table</h4>
-        <div class="row">
-          <div class="col-12">
-            <div class="table-responsive">
-              <table id="order-listing" class="table">
-                <thead>
-                  <tr>
-                      <th>Order #</th>
-                      <th>Purchased On</th>
-                      <th>Customer</th>
-                      <th>Ship to</th>
-                      <th>Base Price</th>
-                      <th>Purchased Price</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>2012/08/03</td>
-                      <td>Edinburgh</td>
-                      <td>New York</td>
-                      <td>$1500</td>
-                      <td>$3200</td>
-                      <td>
-                        <label class="badge badge-info">On hold</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>2015/04/01</td>
-                      <td>Doe</td>
-                      <td>Brazil</td>
-                      <td>$4500</td>
-                      <td>$7500</td>
-                      <td>
-                        <label class="badge badge-danger">Pending</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>3</td>
-                      <td>2010/11/21</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>2016/01/12</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>5</td>
-                      <td>2017/12/28</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>6</td>
-                      <td>2000/10/30</td>
-                      <td>Sam</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-info">On-hold</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>7</td>
-                      <td>2011/03/11</td>
-                      <td>Cris</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>8</td>
-                      <td>2015/06/25</td>
-                      <td>Tim</td>
-                      <td>Italy</td>
-                      <td>$6300</td>
-                      <td>$2100</td>
-                      <td>
-                        <label class="badge badge-info">On-hold</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>9</td>
-                      <td>2016/11/12</td>
-                      <td>John</td>
-                      <td>Tokyo</td>
-                      <td>$2100</td>
-                      <td>$6300</td>
-                      <td>
-                        <label class="badge badge-success">Closed</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>10</td>
-                      <td>2003/12/26</td>
-                      <td>Tom</td>
-                      <td>Germany</td>
-                      <td>$1100</td>
-                      <td>$2300</td>
-                      <td>
-                        <label class="badge badge-danger">Pending</label>
-                      </td>
-                      <td>
-                        <button class="btn btn-outline-primary">View</button>
-                      </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+<div class="page-header">
+    <h3 class="page-title">
+      Dashboard
+    </h3>
+  </div>
+  <div class="row grid-margin">
+    <div class="col-12">
+      <div class="card card-statistics">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fa fa-user mr-2"></i>
+                  New users
+                </p>
+                <h2>54000</h2>
+                <label class="badge badge-outline-success badge-pill">2.7% increase</label>
+              </div>
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fas fa-hourglass-half mr-2"></i>
+                  Avg Time
+                </p>
+                <h2>123.50</h2>
+                <label class="badge badge-outline-danger badge-pill">30% decrease</label>
+              </div>
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fas fa-cloud-download-alt mr-2"></i>
+                  Downloads
+                </p>
+                <h2>3500</h2>
+                <label class="badge badge-outline-success badge-pill">12% increase</label>
+              </div>
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fas fa-check-circle mr-2"></i>
+                  Update
+                </p>
+                <h2>7500</h2>
+                <label class="badge badge-outline-success badge-pill">57% increase</label>
+              </div>
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fas fa-chart-line mr-2"></i>
+                  Sales
+                </p>
+                <h2>9000</h2>
+                <label class="badge badge-outline-success badge-pill">10% increase</label>
+              </div>
+              <div class="statistics-item">
+                <p>
+                  <i class="icon-sm fas fa-circle-notch mr-2"></i>
+                  Pending
+                </p>
+                <h2>7500</h2>
+                <label class="badge badge-outline-danger badge-pill">16% decrease</label>
+              </div>
           </div>
         </div>
       </div>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <i class="fas fa-gift"></i>
+            Orders
+          </h4>
+          <canvas id="orders-chart"></canvas>
+          <div id="orders-chart-legend" class="orders-chart-legend"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            <i class="fas fa-chart-line"></i>
+            Sales
+          </h4>
+          <h2 class="mb-5">56000 <span class="text-muted h4 font-weight-normal">Sales</span></h2>
+          <canvas id="sales-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 @endsection

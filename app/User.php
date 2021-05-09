@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','description','telephone','adresse','image','ville','n','v','nh','vh',
+        'name', 'email', 'password', 'description', 'telephone', 'adresse', 'image', 'ville', 'n', 'v', 'nh', 'vh',
     ];
 
     /**
@@ -42,61 +42,42 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function roles(){
+    public function roles()
+    {
         return $this->BelongsToMany('App\Role');
     }
 
-    public function hasAnyRoles($roles){
-        if($this->roles()->whereIn('name',$roles)->first()) {return true;}
+    public function hasAnyRoles($roles)
+    {
+        if ($this->roles()->whereIn('name', $roles)->first()) {
+            return true;
+        }
         return false;
     }
 
-    public function hasRole($role){
-        if($this->roles()->where('name',$role)->first()) {return true;}
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
         return false;
     }
 
-    public function commandes(){
-        return $this->hasMany('App\Commande');
-    }
-
-    public function produits(){
-        return $this->hasMany('App\Produit');
-    }
-
-    public function mouvements(){
-        return $this->hasMany('App\Mouvement');
-    }
-
-    public function receptions()
+    public function books()
     {
-        return $this->hasMany('App\Reception');
+        return $this->hasMany('App\Book');
     }
 
 
-    public function bonLivraisons()
+
+
+
+    public static function boot()
     {
-        return $this->hasMany('App\BonLivraison');
-    }
-
-    public function factures()
-    {
-        return $this->hasMany('App\Facture');
-    }
-
-    public function statuts()
-    {
-        return $this->hasMany('App\Statut');
-    }
-
-    
-
-    public static function boot(){
         parent::boot();
 
-        static::deleting(function(User $user){
+        static::deleting(function (User $user) {
             $user->commandes()->delete();
         });
-
     }
 }
