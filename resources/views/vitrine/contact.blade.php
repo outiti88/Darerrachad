@@ -171,8 +171,11 @@
     </div>
 </div>
 
+@include('vitrine.partiels._socialMedia')
 
 @endsection
+
+
 
 @section('javascript')
       <!-- Google Map API -->
