@@ -52,6 +52,8 @@
                                         <option value="Enfant">Enfant</option>
                                         <option value="Scolaire">Scolaire</option>
                                         <option value="Religieux">Religieux</option>
+                                        <option value="Religieux">Autres</option>
+
                                     </select>
                                 </div>
                                 <div class="form-group col-6">
@@ -173,6 +175,7 @@
     <script src="{{ url('js/form-validation.js') }}"></script>
     <script src="{{ url('js/bt-maxLength.js') }}"></script>
     <script src="{{ url('js/data-table.js') }}"></script>
+
     <!-- End custom js for this page-->
 </body>
 

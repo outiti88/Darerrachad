@@ -7,20 +7,7 @@
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         <span class="fas fa-bars"></span>
     </button>
-    <ul class="navbar-nav">
-        <li class="nav-item nav-search d-none d-md-flex">
-            <div class="nav-link">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search" aria-label="Search">
-                </div>
-            </div>
-        </li>
-    </ul>
+
 
 
     <ul class="navbar-nav navbar-nav-right">
@@ -29,22 +16,7 @@
                 <span class="btn btn-primary">+ Ajouter un Livre</span>
             </a>
         </li>
-        <li class="nav-item dropdown d-none d-lg-flex">
-            <div class="nav-link">
-                <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown"
-                    data-toggle="dropdown">English</span>
-                <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                    <a class="dropdown-item font-weight-medium" href="#">
-                        Français
-                    </a>
 
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item font-weight-medium" href="#">
-                        Arabe
-                    </a>
-                </div>
-            </div>
-        </li>
         <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                 data-toggle="dropdown">

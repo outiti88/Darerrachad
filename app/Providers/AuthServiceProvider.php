@@ -25,51 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('manage-users', function($user){
-            return $user->hasAnyRoles(['admin','personel']);
+        Gate::define('manage-users', function ($user) {
+            return $user->hasAnyRoles(['admin', 'personel']);
         });
 
-        Gate::define('gestion-stock', function($user){
-            return $user->hasAnyRoles(['admin','ecom']);
-        });
 
-        Gate::define('ramassage-commande', function($user){
-            return $user->hasAnyRoles(['admin','livreur','personel']);
-        });
-
-        Gate::define('client-admin', function($user){
-            return $user->hasAnyRoles(['admin','client','ecom']);
-        });
-
-        Gate::define('fournisseur', function($user){
-            return $user->hasAnyRoles(['ecom','client']);
-        });
-
-        Gate::define('gestion-commande', function($user){
-            return $user->hasAnyRoles(['admin','client']);
-        });
-
-        Gate::define('client', function($user){
-            return $user->hasRole('client');
-        });
-
-        Gate::define('ecom', function($user){
-            return $user->hasRole('ecom');
-        });
-
-        Gate::define('edit-users', function($user){
+        Gate::define('edit-users', function ($user) {
             return $user->hasRole('admin');
         });
-
-        Gate::define('delete-commande', function($user){
-            return $user->hasAnyRoles(['admin','client','personel','ecom']);
-        });
-
-
-        Gate::define('delete-users', function($user){
-            return $user->hasRole('admin');
-        });
-
-        //
     }
 }
