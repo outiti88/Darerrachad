@@ -30,7 +30,12 @@ Route::namespace('Vitrine')->name('vitrine.')->group(function () {
     Route::get('/', 'HomeController@index')->name('index');
     Route::get('/books', 'BookController@index')->name('book.index');
     Route::get('/books/free', 'BookController@getFreeBooks')->name('book.free');
+    Route::get('/books/filter', 'BookController@filter')->name('book.filter');
+    Route::get('/books/search', 'BookController@search')->name('book.search');
+
     Route::get('/contact', 'ContactController@index')->name('contact.index');
+    Route::post('/contact', 'ContactController@store')->name('contact.store');
+
     Route::get('/news', 'ActualityController@index')->name('news.index');
     Route::get('/services', 'ServiceController@index')->name('service.index');
 });

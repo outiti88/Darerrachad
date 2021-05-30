@@ -44,9 +44,9 @@
                                 @endif>
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="{{ route('vitrine.book.index') }}">Nos Livres</a>
                                     <ul class="dropdown-menu">
-                                        <li><a  href="{{ route('vitrine.book.index') }}" >Religieux</a></li>
-                                        <li><a  href="{{ route('vitrine.book.index') }}" >Enfants</a></li>
-                                        <li><a  href="{{ route('vitrine.book.index') }}" >Scolaires</a></li>
+                                        <li><a  href="{{ route('vitrine.book.filter', ['category' => 'Religieux']) }}" >Religieux</a></li>
+                                        <li><a  href="{{ route('vitrine.book.filter', ['category' => 'Enfant']) }}" >Enfants</a></li>
+                                        <li><a  href="{{ route('vitrine.book.filter', ['category' => 'Scolaire']) }}" >Scolaires</a></li>
                                     </ul>
                                 </li>
                                 <li @if ($page=='news')

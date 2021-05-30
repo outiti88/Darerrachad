@@ -20,7 +20,7 @@
                             <div class="container">
                                 <div class="filter-box">
                                     <h3>Cherchez votre livre facilement!</h3>
-                                    <form action="" method="get">
+                                    <form action="{{route('vitrine.book.search')}}" method="get">
                                         <div class="col-md-9 col-sm-6">
                                             <div class="form-group">
                                                 <label class="sr-only" for="keywords">Que cherchez vous?</label>
@@ -102,7 +102,7 @@
                     <nav class="navigation pagination text-center">
                         <h2 class="screen-reader-text">Page Navigation</h2>
                         <div class="nav-links">
-                            {{$books -> links()}}
+                            {{$books ->appends($data) -> links()}}
                         </div>
                     </nav>
                 </div>

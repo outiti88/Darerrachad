@@ -25,7 +25,7 @@ class EmailController extends Controller
         $facture = DB::table('factures')->find($facture);
         $user = $facture->user_id;
         $user = DB::table('users')->find($user);
-        //dd($user , $facture);
+
     $details =[
         'facture' => $facture ,
         'user' => $user

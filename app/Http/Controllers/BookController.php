@@ -50,10 +50,14 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+
         $book = new Book();
         $currentUser = Auth::user();
         $book->name = $request->name;
         $book->type = $request->type;
+        $book->isFree = $request->isFree ? true : false;
+        $book->isFavoris = $request->isFavoris ? true : false;
+
         $book->edition = $request->edition;
         $book->theme = $request->theme;
         $book->format = $request->format;
@@ -69,6 +73,15 @@ class BookController extends Controller
             $book->image = '/uploads/produit/' . $filename;
         } else {
             $book->image =  'http://darerrachad.com/assets/img/logo/logo.png';
+        }
+        if ($request->hasfile('pdf')) {
+            $file = $request->file('pdf');
+            $extension = $file->getClientOriginalExtension(); //getting pdf extension
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/produit/', $filename);
+            $book->pdf = '/uploads/produit/' . $filename;
+        } else {
+            $book->pdf =  'http://darerrachad.com/assets/img/logo/logo.png';
         }
         $book->user()->associate($currentUser)->save();
         $request->session()->flash('bookAdded', $book->name);
@@ -86,6 +99,8 @@ class BookController extends Controller
     {
 
         $book = Book::find($id);
+        $book->isFree = $request->isFree ? true : false;
+        $book->isFavoris = $request->isFavoris ? true : false;
         $book->name = $request->name;
         $book->type = $request->type;
         $book->edition = $request->edition;
@@ -100,6 +115,15 @@ class BookController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('uploads/produit/', $filename);
             $book->image = '/uploads/produit/' . $filename;
+        }
+        if ($request->hasfile('pdf')) {
+            $file = $request->file('pdf');
+            $extension = $file->getClientOriginalExtension(); //getting pdf extension
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/produit/', $filename);
+            $book->pdf = '/uploads/produit/' . $filename;
+        } else {
+            $book->pdf =  'http://darerrachad.com/assets/img/logo/logo.png';
         }
         $book->save();
         $request->session()->flash('bookUpdated', $book->name);

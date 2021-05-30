@@ -35,10 +35,7 @@ class PdfGenerate extends Mailable
     public function build()
     {
         if($this->motif === "pdf"){
-            return $this->subject('Facture générée')->view('emails.PdfGenerate');
-        }
-        if($this->motif === "register"){
-            return $this->subject('Bienvenue chez Quickoo Delivery')->view('emails.register');
+            return $this->subject('Votre livre gratuit')->view('emails.PdfGenerate');
         }
     }
 }

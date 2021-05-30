@@ -217,6 +217,9 @@ fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
+.freeBook{
+  max-height: 250px;
+}
 legend {
   border: 0;
   padding: 0;

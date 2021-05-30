@@ -20,4 +20,17 @@ class ContactController extends Controller
             'page' => $page
         ]);
     }
+
+    public function store(Request $request){
+        $lead = new Lead();
+
+        $lead->firstName = $request->firstName;
+        $lead->lastName = $request->lastName;
+        $lead->email = $request->email;
+        $lead->phone = $request->phone;
+        $lead->adresse = $request->adresse;
+        $lead->status = 'nouveau';
+
+        
+    }
 }

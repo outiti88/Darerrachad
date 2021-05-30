@@ -223,115 +223,23 @@
                 </div>
                 <div class="filter-buttons">
                     <div class="filter btn" data-filter="all">Afficher Tout</div>
-                    <div class="filter btn" data-filter=".adults">Islamique</div>
-                    <div class="filter btn" data-filter=".kids-teens">Enfants</div>
-                    <div class="filter btn" data-filter=".video">Scolaire</div>
-                    <div class="filter btn" data-filter=".audio">Autres</div>
+                    <div class="filter btn" data-filter=".Religieux">Religieux</div>
+                    <div class="filter btn" data-filter=".Enfant">Enfant</div>
+                    <div class="filter btn" data-filter=".Scolaire">Scolaire</div>
+                    <div class="filter btn" data-filter=".Autres">Autres</div>
                 </div>
             </div>
             <div id="category-filter">
                 <ul class="category-list">
-                    <li class="category-item adults">
-                        <figure>
-                            <img src="{{ url('/vitrine/images/category-filter/home-v1/category-filter-img-01.jpg')}}" alt="New Releaase" />
-                            <figcaption class="bg-orange">
-                                <div class="info-block">
-                                    <h4>Livre 01</h4>
-                                    <span class="author"><strong>Auteur:</strong>ELAMRICHE ABDESSAMAD</span>
-                                    <span class="author"><strong>Code:</strong> 9781581573268</span>
-                                    <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-share-alt"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-search"></i>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item kids-teens">
-                        <figure>
-                            <img src="{{ url('/vitrine/images/category-filter/home-v1/category-filter-img-02.jpg')}}" alt="New Releaase" />
-                            <figcaption class="bg-orange">
-                                <div class="info-block">
-                                    <h4>Livre 02</h4>
-                                    <span class="author"><strong>Auteur:</strong>ELAMRICHE ABDESSAMAD</span>
-                                    <span class="author"><strong>Code:</strong> 9781581573268</span>
-                                    <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-share-alt"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-search"></i>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item video">
-                        <figure>
-                            <img src="{{ url('/vitrine/images/category-filter/home-v1/category-filter-img-03.jpg')}}" alt="New Releaase" />
-                            <figcaption class="bg-orange">
-                                <div class="info-block">
-                                    <h4>Livre 03</h4>
-                                    <span class="author"><strong>Auteur:</strong>ELAMRICHE ABDESSAMAD</span>
-                                    <span class="author"><strong>Code:</strong> 9781581573268</span>
+                    @forelse ($books as $index => $book)
 
-                                    <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-share-alt"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-search"></i>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="category-item audio">
+                    <li class="category-item {{$book->category}}">
                         <figure>
-                            <img src="{{ url('/vitrine/images/category-filter/home-v1/category-filter-img-04.jpg')}}" alt="New Releaase" />
+                            <img class="freeBook" src="{{$book->image}}" alt="New Releaase" />
                             <figcaption class="bg-orange">
                                 <div class="info-block">
-                                    <h4>Livre 04</h4>
-                                    <span class="author"><strong>Auteur:</strong>ELAMRICHE ABDESSAMAD</span>
+                                    <h4>{{$book->name}}</h4>
+                                    <span class="author"><strong>Categorie:</strong>{{$book->category}}</span>
                                     <span class="author"><strong>Code:</strong> 9781581573268</span>
                                     <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
                                     <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
@@ -356,9 +264,14 @@
                             </figcaption>
                         </figure>
                     </li>
+                    @empty
+                    <li>
+                        <h2 colspan="10" style="text-align: center">Aucun livre enregistré!</h2>
+                    </li>
+                @endforelse
                 </ul>
                 <div class="center-content">
-                    <a href="books.html" class="btn btn-primary">Voir Plus</a>
+                    <a href="{{ route('vitrine.book.index') }}" class="btn btn-primary">Voir Plus</a>
                 </div>
                 <div class="clearfix"></div>
             </div>

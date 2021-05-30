@@ -17,97 +17,88 @@
                 <div class="container">
                     <div class="row">
                         <div class="blog-page grid">
+                            @forelse ($books as $index => $book)
                             <article>
                                 <div class="grid-item blog-item">
                                     <div class="post-thumbnail">
                                         <div class="post-date-box">
                                             <div class="post-date">
-                                                <a class="date" href="#.">PDF</a>
+                                                <a class="date"  data-toggle="modal" data-target="#exampleModal{{$index}}">PDF</a>
                                             </div>
                                         </div>
-                                        <a href="blog-detail.html"><img alt="blog" src="{{url('/vitrine/images/pdf_img/pdf_01.jpg.jpg')}}" /></a>
+                                        <a  data-toggle="modal" data-target="#exampleModal{{$index}}" ><img class="freeBook" alt="blog" src="{{url($book->image)}}" /></a>
                                     </div>
                                     <div class="post-detail">
                                         <header class="entry-header">
                                             <div class="blog_meta_category">
                                                 <span class="arrow-right"></span>
-                                                <a href="#." rel="category tag">Religieux</a>
+                                                <a  href="{{ route('vitrine.book.filter', ['category' => $book->category]) }}" rel="category tag">{{$book->category}}</a>
                                             </div>
-                                            <h3 class="entry-title"><a href="blog-detail.html">PDF 01</a></h3>
+                                            <h3 class="entry-title"><a href="">{{$book->name}}</a></h3>
                                             <div class="entry-meta">
-                                                <span><i class="fa fa-user"></i> <a href="#">Dar Errachad</a></span>
+                                                <span><i class="fa fa-user"></i> <a href="{{ route('vitrine.book.index') }}">Dar Errachad</a></span>
                                             </div>
                                         </header>
-
-<!--
-                                        <footer class="entry-footer">
-                                            <a class="btn btn-default" href="blog-detail.html">Téléchargez</a>
-                                        </footer>
--->
                                     </div>
                                 </div>
                             </article>
-                            <article>
-                                <div class="grid-item blog-item">
-                                    <div class="post-thumbnail">
-                                        <div class="post-date-box">
-                                            <div class="post-date">
-                                                <a class="date" href="#.">PDF</a>
-                                            </div>
-                                        </div>
-                                        <a href="blog-detail.html"><img alt="blog" src="{{url('/vitrine/images/pdf_img/pdf_02.jpg')}}" /></a>
-                                    </div>
-                                    <div class="post-detail">
-                                        <header class="entry-header">
-                                            <div class="blog_meta_category">
-                                                <span class="arrow-right"></span>
-                                                <a href="#." rel="category tag">Scolaires</a>
-                                            </div>
-                                            <h3 class="entry-title"><a href="blog-detail.html">PDF 02</a></h3>
-                                            <div class="entry-meta">
-                                                <span><i class="fa fa-user"></i> <a href="#">Dar Errachad</a></span>
-                                            </div>
-                                        </header>
 
-<!--
-                                        <footer class="entry-footer">
-                                            <a class="btn btn-default" href="blog-detail.html">Téléchargez</a>
-                                        </footer>
--->
+                            <div class="modal fade" id="exampleModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Remlissez le formulaire suivant pour recevoir le livre sur votre E-mail</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
                                     </div>
+                                    <form method="POST" action="{{route('vitrine.contact.store')}}">
+                                        @csrf
+                                        <input type="hidden" name="book" class="form-control" value="{{$book->id}}" id="freeBookToSend">
+                                        <div class="modal-body">
+                                        <div class="form-group">
+                                          <label for="firstName" class="col-form-label">Nom:</label>
+                                          <input type="text" name="firstName" class="form-control" id="firstName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName" class="col-form-label">Prénom:</label>
+                                            <input type="text" name="lastName" class="form-control" id="lastName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-form-label">Email:</label>
+                                            <input type="email" name="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="col-form-label">Téléphone:</label>
+                                            <input type="text" name="phone" class="form-control" id="phone">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="adresse" class="col-form-label">Adresse:</label>
+                                          <textarea name="adresse" class="form-control" id="adresse"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="btn btn-primary">Recevoir le livre</button>
+                                    </div>
+                                </form>
+
+                                  </div>
                                 </div>
-                            </article>
-                            <article>
-                                    <div class="grid-item blog-item">
-                                        <div class="post-thumbnail">
-                                            <div class="post-date-box">
-                                                <div class="post-date">
-                                                    <a class="date" href="#.">PDF</a>
-                                                </div>
-                                            </div>
-                                            <a href="blog-detail.html"><img alt="blog" src="{{url('/vitrine/images/pdf_img/pdf_03.jpg')}}" /></a>
-                                        </div>
-                                        <div class="post-detail">
-                                            <header class="entry-header">
-                                                <div class="blog_meta_category">
-                                                    <span class="arrow-right"></span>
-                                                    <a href="#." rel="category tag">Enfants</a>
-                                                </div>
-                                                <h3 class="entry-title"><a href="blog-detail.html">PDF 03</a></h3>
-                                                <div class="entry-meta">
-                                                    <span><i class="fa fa-user"></i> <a href="#">Dar Errachad</a></span>
-                                                </div>
-                                            </header>
-
-<!--
-                                            <footer class="entry-footer">
-                                                <a class="btn btn-default" href="blog-detail.html">Téléchargez</a>
-                                            </footer>
--->
-                                        </div>
-                                    </div>
-                                </article>
+                              </div>
+                            @empty
+                            <tr>
+                                <td colspan="10" style="text-align: center">Aucun livre enregistrée!</td>
+                            </tr>
+                        @endforelse
+                        
                             </div>
+                            <div style="padding-bottom : 50px">
+                                <div class="nav-links">
+                                    {{$books -> links()}}
+                                </div>
+                            </div> 
 <!--                                <a href="#" id="loadmore">Button Plus de livres PDF</a>-->
                     </div>
                 </div>

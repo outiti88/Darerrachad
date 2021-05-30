@@ -96,7 +96,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Modal êtes vous sûr de vouloir supprimer ce livre?.</p>
+                                                            <p>Êtes vous sûr de vouloir supprimer ce livre ?</p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <form method="POST"
@@ -147,7 +147,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="form-group col-6">
+                                                                        <div class="form-group col-4">
                                                                             <label for="category">Categorie (*)</label>
                                                                             <select id="category" name="category"
                                                                                 class="js-example-basic-single w-100"
@@ -158,9 +158,16 @@
                                                                                 <option value="Enfant">Enfant</option>
                                                                                 <option value="Scolaire">Scolaire</option>
                                                                                 <option value="Religieux">Religieux</option>
+                                                                                <option value="Autres">Autres</option>
                                                                             </select>
                                                                         </div>
-                                                                        <div class="form-group col-6">
+                                                                        <div class="form-group col-4">
+                                                                            <label for="theme">Thème (*)</label>
+                                                                            <input id="theme" class="form-control"
+                                                                                value="{{ $book->theme }}" type="text"
+                                                                                name="theme" required>
+                                                                        </div>
+                                                                        <div class="form-group col-4">
                                                                             <label for="edition">Edition (*)</label>
                                                                             <input id="edition" class="form-control"
                                                                                 value="{{ $book->edition }}" type="text"
@@ -168,13 +175,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="form-group col-6">
-                                                                            <label for="theme">Thème (*)</label>
-                                                                            <input id="theme" class="form-control"
-                                                                                value="{{ $book->theme }}" type="text"
-                                                                                name="theme" required>
-                                                                        </div>
-                                                                        <div class="form-group col-6">
+                                                                        <div class="form-group col-4">
                                                                             <label for="format">Format (*)</label>
                                                                             <select id="format" name="format"
                                                                                 class="js-example-basic-single w-100"
@@ -187,9 +188,7 @@
                                                                                 <option>8x12</option>
                                                                             </select>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="form-group col-6">
+                                                                        <div class="form-group col-4">
                                                                             <label for="type">Type (*)</label>
                                                                             <select id="type" name="type"
                                                                                 class="js-example-basic-single w-100"
@@ -201,7 +200,7 @@
                                                                                 <option>Cellophane</option>
                                                                             </select>
                                                                         </div>
-                                                                        <div class="form-group col-6">
+                                                                        <div class="form-group col-4">
                                                                             <label for="paper">Papier (*)</label>
                                                                             <select id="paper" name="paper"
                                                                                 class="js-example-basic-single w-100"
@@ -224,12 +223,42 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
+                                                                        <div class="form-group col-12" id="pdfBlock{{ $book->id }}" @if ($book->isFree != 1)
+                                                                            style="display: none" 
+                                                                        @endif >
+                                                                            <label for="pdf">Fichier PDF</label>
+                                                                            <input id="pdf" name="pdf" type="file"
+                                                                                class="dropify form-control"
+                                                                                value="{{ $book->pdf }}"
+                                                                                accept="application/pdf"
+                                                                                data-height="50">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
                                                                         <div class="form-group col-12">
                                                                             <label for="abstract">Résumé</label>
                                                                             <textarea name="abstract" id="abstract"
                                                                                 class="form-control" maxlength="100"
                                                                                 rows="2"
                                                                                 placeholder="Un résumé de 100 caractères au maximum.">{{ $book->abstract }}</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="form-group  form-check col-6">
+                                                                            <label class="form-check-label" for="isFree{{ $book->id }}">
+                                                                              <input onclick="myFunction2({{ $book->id }})" type="checkbox" class="form-check-input" name="isFree" id="isFree{{ $book->id }}" @if ($book->isFree)
+                                                                              checked
+                                                                          @endif  >
+                                                                              Gratuit
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-group  form-check col-6">
+                                                                            <label class="form-check-label" for="Favoris">
+                                                                              <input type="checkbox" class="form-check-input" name="isFavoris" id="Favoris" @if ($book->isFavoris)
+                                                                                  checked
+                                                                              @endif >
+                                                                              Favoris
+                                                                            </label>
                                                                         </div>
                                                                     </div>
                                                                 </fieldset>

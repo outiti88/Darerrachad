@@ -52,7 +52,7 @@
                                         <option value="Enfant">Enfant</option>
                                         <option value="Scolaire">Scolaire</option>
                                         <option value="Religieux">Religieux</option>
-                                        <option value="Religieux">Autres</option>
+                                        <option value="Autres">Autres</option>
 
                                     </select>
                                 </div>
@@ -102,6 +102,16 @@
                                         data-height="50" accept="image/png, image/jpeg" required>
                                 </div>
                             </div>
+
+                            <div class="row" style="display: none" id="pdfBlock">
+                                <div class="form-group col-12">
+                                    <label for="pdf">Fichier PDF</label>
+                                    <input id="pdf" name="pdf" type="file"
+                                        class="dropify form-control"
+                                        accept="application/pdf"
+                                        data-height="50">
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="abstract">Résumé</label>
@@ -109,7 +119,20 @@
                                         rows="2" placeholder="Un résumé de 100 caractères au maximum."></textarea>
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="form-group  form-check col-6">
+                                    <label class="form-check-label" for="isFree">
+                                      <input onclick="myFunction2('')" type="checkbox" class="form-check-input" name="isFree" id="isFree" >
+                                      Gratuit
+                                    </label>
+                                </div>
+                                <div class="form-group  form-check col-6">
+                                    <label class="form-check-label" for="Favoris">
+                                      <input type="checkbox" class="form-check-input" name="isFavoris" id="Favoris" >
+                                      Favoris
+                                    </label>
+                                </div>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="modal-footer">
@@ -175,6 +198,20 @@
     <script src="{{ url('js/form-validation.js') }}"></script>
     <script src="{{ url('js/bt-maxLength.js') }}"></script>
     <script src="{{ url('js/data-table.js') }}"></script>
+    <script>
+        function myFunction2(id) {
+            var pdfBlock = document.getElementById("pdfBlock"+id);
+
+            if(document.getElementById('isFree'+id).checked){
+                pdfBlock.style.display = "block";
+                console.log("cd");
+            }
+            else{
+                pdfBlock.style.display = "none";
+                console.log("cp");
+            }
+        }
+    </script>
 
     <!-- End custom js for this page-->
 </body>

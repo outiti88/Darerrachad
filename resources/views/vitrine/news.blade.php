@@ -73,8 +73,8 @@
                             <aside id="secondary" class="sidebar widget-area">
                                 <div class="widget widget_search">
                                     <h4 class="widget-title" data-control>Trouvez un livre</h4>
-                                    <form method="get" action="#." class="form-horizontal search-form">
-                                        <input class="form-control" id="inputEmail" placeholder="Rechercher" value="" name="s" type="text">
+                                    <form action="{{route('vitrine.book.search')}}" method="get" class="form-horizontal search-form">
+                                        <input class="form-control" id="inputEmail" placeholder="Rechercher"  name="keywords" type="text">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
@@ -82,19 +82,19 @@
                                     <h4 class="widget-title" data-control>Liens Rapides</h4>
                                     <div class="widget_categories">
                                         <ul>
-                                            <li><a href="index.html">Accueil</a></li>
-                                            <li><a href="books.html">Livres</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="contact.html">Contacts</a></li>
+                                            <li><a href="{{ route('vitrine.index') }}">Accueil</a></li>
+                                            <li><a href="{{ route('vitrine.book.index') }}">Livres</a></li>
+                                            <li><a href="{{ route('vitrine.service.index') }}">Services</a></li>
+                                            <li><a href="{{ route('vitrine.contact.index') }}">Contacts</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="widget widget_tag_cloud">
                                     <h4 class="widget-title" data-control>Catégories Livres</h4>
                                     <ul>
-                                        <li><a href="#">Réligieux</a></li>
-                                        <li><a href="#">Enfants</a></li>
-                                        <li><a href="#">Scolaire</a></li>
+                                        <li><a href="{{ route('vitrine.book.filter', ['category' => 'Religieux']) }}">Religieux</a></li>
+                                        <li><a href="{{ route('vitrine.book.filter', ['category' => 'Enfant']) }}">Enfants</a></li>
+                                        <li><a href="{{ route('vitrine.book.filter', ['category' => 'Scolaire']) }}">Scolaire</a></li>
                                     </ul>
                                 </div>
                             </aside>
