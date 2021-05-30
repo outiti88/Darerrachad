@@ -55,7 +55,7 @@
                                     </div>
                                     <form method="POST" action="{{route('vitrine.contact.store')}}">
                                         @csrf
-                                        <input type="hidden" name="book" class="form-control" value="{{$book->id}}" id="freeBookToSend">
+                                        <input type="hidden" name="freeBookToSend" class="form-control" value="{{$book->id}}" id="freeBookToSend">
                                         <div class="modal-body">
                                         <div class="form-group">
                                           <label for="firstName" class="col-form-label">Nom:</label>

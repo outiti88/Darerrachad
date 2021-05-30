@@ -14,6 +14,11 @@
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <div class="books-full-width">
+                @if (session()->has('bonkSent'))
+                    <div class="alert alert-success" role="alert">
+                        Le livre a été bien envoyé sur cette adresse email {{ session()->get('bonkSent') }}.
+                    </div>
+                @endif
                 <div class="container" style="margin-bottom: 40px">
                     <!-- Start: Search Section -->
                     <section class="search-filters">
