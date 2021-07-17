@@ -59,9 +59,7 @@
                                 @endif>
                                     <a  href="{{ route('vitrine.book.free') }}">Livres Gratuits</a>
                                 </li>
-                                <li  @if ($page=='service')
-                                class="active"
-                                @endif ><a href="{{ route('vitrine.service.index') }}">Services</a></li>
+
                                 <li @if ($page=='contact')
                                 class="active"
                                 @endif ><a href="{{ route('vitrine.contact.index') }}">Contact</a></li>

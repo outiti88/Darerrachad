@@ -31,6 +31,26 @@ class BookController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $page_title = 'Detail du Livre';
+        $page_subTitle = 'Téléchargez votre livre gratuitement';
+        $page = 'book';
+
+        $favorisBooks = DB::table('books')->where('deleted_at', NULL)->where('isFavoris', 1)->orderBy('created_at', 'DESC')->get();
+        $book = DB::table('books')->where('id', $id)->first();
+        $page_link = $book->name;
+
+
+        return view('vitrine.book.show', [
+            'book' => $book,           'page_title' => $page_title,
+            'page_link' => $page_link,
+            'page_subTitle' => $page_subTitle,
+            'page' => $page,
+            'favorisBooks' => $favorisBooks
+        ]);
+    }
+
     public function getFreeBooks()
     {
         $page_title = 'Livres Gratuits';
@@ -52,13 +72,13 @@ class BookController extends Controller
         ]);
     }
 
-    
+
     public function filter(Request $request)
     {
         $data = $request->all();
 
-        $page_title = 'LIVRES & COLLECTIONS';
-        $page_subTitle = 'Wikipédia Marocaine';
+        $page_title = 'LIVRES '.$request->category;
+        $page_subTitle = 'Livres '.$request->category;
         $page_link = 'Nos Livres';
         $page = 'book';
 

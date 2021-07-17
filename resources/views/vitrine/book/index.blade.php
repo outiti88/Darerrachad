@@ -61,39 +61,41 @@
                             @forelse ($books as $index => $book)
                             <li>
                                 <figure>
-                                    <a href=""><img src="{{ $book->image }}" alt="Book"></a>
-                                    <figcaption>
-                                        <header>
-                                            <h4>{{ $book->name }}</h4>
-                                            <p><strong>Auteur:</strong> {{ $book->name }}</p>
-                                            <p><strong>Code:</strong>  {{ $book->code }}"</p>
-                                        </header>
-                                        <p>{{ $book->abstract }}</p>
-                                        <div class="actions">
-                                            <ul>
-                                                <li>
-                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
-                                                        <i class="fa fa-search"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
-                                                        <i class="fa fa-print"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Share">
-                                                        <i class="fa fa-share-alt"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </figcaption>
+                                    <a href="{{ route('vitrine.book.show', ['book' => $book->id]) }}"><img src="{{ $book->image }}" alt="Book"></a>
+                                    <a href="{{ route('vitrine.book.show', ['book' => $book->id]) }}">
+                                        <figcaption>
+                                            <header>
+                                                <h4>{{ $book->name }}</h4>
+                                                <p><strong>Auteur:</strong> {{ $book->name }}</p>
+                                                <p><strong>Code:</strong>  {{ $book->code }}"</p>
+                                            </header>
+                                            <p>{{ $book->abstract }}</p>
+                                            <div class="actions">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
+                                                            <i class="fa fa-print"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Share">
+                                                            <i class="fa fa-share-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </figcaption>
+                                    </a>
                                 </figure>
                             </li>
                             @empty

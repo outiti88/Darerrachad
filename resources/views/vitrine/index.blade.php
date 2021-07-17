@@ -234,35 +234,37 @@
                     @forelse ($books as $index => $book)
 
                     <li class="category-item {{$book->category}}">
-                        <figure>
-                            <img class="freeBook" src="{{$book->image}}" alt="New Releaase" />
-                            <figcaption class="bg-orange">
-                                <div class="info-block">
-                                    <h4>{{$book->name}}</h4>
-                                    <span class="author"><strong>Categorie:</strong>{{$book->category}}</span>
-                                    <span class="author"><strong>Code:</strong> 9781581573268</span>
-                                    <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
-                                    <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-envelope"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-share-alt"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-search"></i>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </figcaption>
-                        </figure>
+                        <a href="{{ route('vitrine.book.show', ['book' => $book->id]) }}">
+                            <figure>
+                                <img class="freeBook" src="{{$book->image}}" alt="New Releaase" />
+                                <figcaption class="bg-orange">
+                                    <div class="info-block">
+                                        <h4>{{$book->name}}</h4>
+                                        <span class="author"><strong>Categorie:</strong>{{$book->category}}</span>
+                                        <span class="author"><strong>Code:</strong> 9781581573268</span>
+                                        <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. Pellentesque dolor turpis, pulvinar varius.</p>
+                                        <a href="#">Lire la suite <i class="fa fa-long-arrow-right"></i></a>
+                                        <ol>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-envelope"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-share-alt"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </li>
                     @empty
                     <li>
