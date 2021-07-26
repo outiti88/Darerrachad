@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Lead;
 use App\Book;
-
+use Mail;
 
 class ContactController extends Controller
 {
@@ -43,8 +43,7 @@ class ContactController extends Controller
             'user' => $lead
         ];
 
-      \Mail::to($lead->email)->send(new \App\Mail\PdfGenerate($details , "pdf"));
-
+        Mail::to($lead->email)->send(new \App\Mail\PdfGenerate($details , "pdf"));
 
         $request->session()->flash('bonkSent', $lead->email);
 

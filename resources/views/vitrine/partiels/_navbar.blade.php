@@ -59,7 +59,9 @@
                                 @endif>
                                     <a  href="{{ route('vitrine.book.free') }}">Livres Gratuits</a>
                                 </li>
-
+                                <li @if ($page=='speciality')
+                                class="active"
+                                @endif ><a href="{{ route('vitrine.speciality.index') }}">Spécialités</a></li>
                                 <li @if ($page=='contact')
                                 class="active"
                                 @endif ><a href="{{ route('vitrine.contact.index') }}">Contact</a></li>
@@ -88,7 +90,7 @@
                             </li>
                             <li><a  href="{{ route('vitrine.news.index') }}">Actualités</a></li>
                             <li><a  href="{{ route('vitrine.book.index') }}">Livres Gratuits</a></li>
-                            <li><a h href="{{ route('vitrine.service.index') }}">Services</a></li>
+                            <li><a href="{{ route('vitrine.speciality.index') }}">Spécialités</a></li>
                             <li><a  href="{{ route('vitrine.contact.index') }}">Contact</a></li>
                         </ul>
                     </div>

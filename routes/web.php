@@ -45,6 +45,7 @@ Route::namespace('Vitrine')->name('vitrine.')->group(function () {
     //SERVICE GESTURE
     Route::get('/news', 'ActualityController@index')->name('news.index');
     Route::get('/services', 'ServiceController@index')->name('service.index');
+    Route::get('/speciality', 'SpecialityController@index')->name('speciality.index');
 });
 
 

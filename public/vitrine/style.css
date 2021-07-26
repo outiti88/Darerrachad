@@ -18425,7 +18425,7 @@ a:focus {
   margin-top: 5px;
 }
 .sidebar h4::before {
-  display: block;
+  display: none;
   text-align: left;
   content: "";
   position: absolute;

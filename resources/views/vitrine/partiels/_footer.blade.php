@@ -22,7 +22,7 @@
                                         <li><a href="{{ route('vitrine.index') }}">ACCUEIL</a></li>
                                         <li><a href="{{ route('vitrine.book.index') }}">LIVRES</a></li>
                                         <li><a href="{{ route('vitrine.news.index') }}">ACTUALITÉS</a></li>
-                                        <li><a href="{{ route('vitrine.service.index') }}">SERVICES</a></li>
+                                        <li><a href="{{ route('vitrine.speciality.index') }}">SPÉCIALITÉS</a></li>
                                         <li><a href="{{ route('vitrine.contact.index') }}">CONTACT</a></li>
                                     </ul>
                                 </div>

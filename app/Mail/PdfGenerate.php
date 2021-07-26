@@ -13,7 +13,7 @@ class PdfGenerate extends Mailable
 
     public $details;
     private $motif ;
-    
+
 
     /**
      * Create a new message instance.
@@ -24,7 +24,7 @@ class PdfGenerate extends Mailable
     {
             $this->motif = $motif;
             $this->details = $details;
-        
+
     }
 
     /**

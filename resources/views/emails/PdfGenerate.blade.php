@@ -37,7 +37,7 @@
             margin: 13px 0;
             }
   </style>
-  
+
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
@@ -79,9 +79,9 @@
             <td style="direction:ltr;font-size:0px;padding:0px;text-align:center;">
               <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                class="" style="vertical-align:top;width:600px;"
             >
@@ -97,7 +97,7 @@
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                                 <tbody>
                                   <tr>
-                                    <td style="width:600px;"> <img alt="header image" height="auto" src="http://127.0.0.1:8000{{$details['book']->image}}" width="600"> </td>
+                                    <td style="width:600px;"> <img alt="header image" height="auto" src="http://127.0.0.1:8000/{{$details['book']->image}}" width="600"> </td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -111,9 +111,9 @@
               </div>
               <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
             </td>
@@ -125,7 +125,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
@@ -139,9 +139,9 @@
             <td style="direction:ltr;font-size:0px;padding:0px;padding-bottom:20px;padding-top:10px;text-align:center;">
               <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                class="" style="vertical-align:top;width:600px;"
             >
@@ -194,9 +194,9 @@
               </div>
               <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
             </td>
