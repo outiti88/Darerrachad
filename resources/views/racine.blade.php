@@ -115,8 +115,8 @@
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="abstract">Résumé</label>
-                                    <textarea name="abstract" id="abstract" class="form-control" maxlength="100"
-                                        rows="2" placeholder="Un résumé de 100 caractères au maximum."></textarea>
+                                    <textarea name="abstract" id="abstract" class="form-control" maxlength="900"
+                                        rows="2" placeholder="Un résumé de 900 caractères au maximum."></textarea>
                                 </div>
                             </div>
                             <div class="row">

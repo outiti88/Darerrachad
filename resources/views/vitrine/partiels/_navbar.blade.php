@@ -49,11 +49,6 @@
                                         <li><a  href="{{ route('vitrine.book.filter', ['category' => 'Scolaire']) }}" >Scolaires</a></li>
                                     </ul>
                                 </li>
-                                <li @if ($page=='news')
-                                class="active"
-                                @endif>
-                                    <a  href="{{ route('vitrine.news.index') }}">Actualités</a>
-                                </li>
                                 <li @if ($page=='freeBooks')
                                 class="active"
                                 @endif>
@@ -62,6 +57,13 @@
                                 <li @if ($page=='speciality')
                                 class="active"
                                 @endif ><a href="{{ route('vitrine.speciality.index') }}">Spécialités</a></li>
+                                <li @if ($page=='news')
+                                class="active"
+                                @endif>
+                                    <a  href="{{ route('vitrine.news.index') }}">Actualités</a>
+                                </li>
+
+
                                 <li @if ($page=='contact')
                                 class="active"
                                 @endif ><a href="{{ route('vitrine.contact.index') }}">Contact</a></li>
@@ -83,14 +85,14 @@
                             <li>
                                 <a  href="{{ route('vitrine.book.index') }}">Livres</a>
                                 <ul>
-                                        <li><a  href="{{ route('vitrine.book.index') }}">Religieux</a></li>
-                                        <li><a  href="{{ route('vitrine.book.index') }}">Enfants</a></li>
-                                        <li><a  href="{{ route('vitrine.book.index') }}">Scolaires</a></li>
+                                        <li><a style="padding-left: 30px; font-size:0.9em;"  href="{{ route('vitrine.book.index') }}">Religieux</a></li>
+                                        <li><a style="padding-left: 30px; font-size:0.9em;"  href="{{ route('vitrine.book.index') }}">Enfants</a></li>
+                                        <li><a style="padding-left: 30px; font-size:0.9em;"  href="{{ route('vitrine.book.index') }}">Scolaires</a></li>
                                 </ul>
                             </li>
-                            <li><a  href="{{ route('vitrine.news.index') }}">Actualités</a></li>
                             <li><a  href="{{ route('vitrine.book.index') }}">Livres Gratuits</a></li>
                             <li><a href="{{ route('vitrine.speciality.index') }}">Spécialités</a></li>
+                            <li><a  href="{{ route('vitrine.news.index') }}">Actualités</a></li>
                             <li><a  href="{{ route('vitrine.contact.index') }}">Contact</a></li>
                         </ul>
                     </div>

@@ -171,7 +171,8 @@
                             <td align="center" vertical-align="middle" style="font-size:0px;padding:20px 0 0 0;word-break:break-word;">
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                 <tr>
-                                <td align="center" bgcolor="#8bb420" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#e85f03;" valign="middle"> <a href="http://127.0.0.1:8000{{$details['book']->pdf}}" style="display: inline-block; background: #e85f03; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; line-height: 120%; margin: 0; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px; text-decoration: none; color: white;"
+                                <td align="center" bgcolor="#8bb420" role="presentation" style="border:none;border-radius:3px;cursor:auto;mso-padding-alt:10px 25px;background:#e85f03;" valign="middle">
+                                    <a href="https://test.darerrachad.com{{$details['book']->pdf}}" style="display: inline-block; background: #e85f03; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; line-height: 120%; margin: 0; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px; text-decoration: none; color: white;"
                                       target="_blank">
                                   Cliquez Ici pour l'ouvrir
                                 </a> </td>

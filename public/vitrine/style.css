@@ -9512,6 +9512,7 @@ a:focus {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 175px;
+  display:flex;
 }
 .facts-counter ul li .fact-item .fact-icon {
   float: left;

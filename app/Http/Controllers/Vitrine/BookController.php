@@ -15,7 +15,7 @@ class BookController extends Controller
         $page_subTitle = 'Wikipédia Marocaine';
         $page_link = 'Nos Livres';
         $total = DB::table('books')->count();
-        $books = DB::table('books')->where('deleted_at', NULL)->orderBy('created_at', 'DESC')->paginate(6);
+        $books = DB::table('books')->where('deleted_at', NULL)->where('isFree', 0)->orderBy('created_at', 'DESC')->paginate(6);
         $page = 'book';
 
 
@@ -31,8 +31,9 @@ class BookController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show($book)
     {
+        $id = $book;
         $page_title = 'Detail du Livre';
         $page_subTitle = 'Téléchargez votre livre gratuitement';
         $page = 'book';

@@ -30,7 +30,7 @@
                 </div>
                 <div class="item">
                     <figure>
-                        <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/header-slide2.jpg')}}" alt=""/>
+                        <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/quarawiyin.jpg')}}" alt=""/>
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="item">
                     <figure>
-                        <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/header-slide3.jpg')}}" alt=""/>
+                        <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/header-slide1.jpg')}}" alt=""/>
                     </figure>
                      <div class="container">
                         <div class="carousel-caption">
@@ -91,33 +91,37 @@
                                 <li class="bg-primary">
                                     <div class="fact-item">
                                         <div class="fact-icon">
-                                            <i class="ebook"></i>
+                                            <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/icon/religieux.png')}}" alt=""/>
+
                                         </div>
-                                        <span>Livres Religieux<strong class="fact-counter">45780</strong></span>
+                                        <span>Livres Religieux<strong class="fact-counter">{{$totalScolaire}}</strong></span>
                                     </div>
                                 </li>
                                 <li class="bg-blue">
                                     <div class="fact-item">
                                         <div class="fact-icon">
-                                            <i class="eaudio"></i>
+                                            <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/icon/scolaire.png')}}" alt=""/>
+
                                         </div>
-                                        <span>Livres Scolaires<strong class="fact-counter">32450</strong></span>
+                                        <span>Livres Scolaires<strong class="fact-counter">{{$totalEnfant}}</strong></span>
                                     </div>
                                 </li>
                                 <li class="bg-primary">
                                     <div class="fact-item">
                                         <div class="fact-icon">
-                                            <i class="magazine"></i>
+                                            <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/icon/enfants.png')}}" alt=""/>
+
                                         </div>
-                                        <span>Livres Enfants<strong class="fact-counter">14450</strong></span>
+                                        <span>Livres Enfants<strong class="fact-counter">{{$totalReligieux}}</strong></span>
                                     </div>
                                 </li>
                                 <li class="bg-blue">
                                     <div class="fact-item">
                                         <div class="fact-icon">
-                                            <i class="videos"></i>
+                                            <img alt="Home Slide" src="{{ url('/vitrine/images/header-slider/icon/autres.png')}}" alt=""/>
+
                                         </div>
-                                        <span>Autres<strong class="fact-counter">32450</strong></span>
+                                        <span>Autres<strong class="fact-counter">{{$totalAutres}}</strong></span>
                                     </div>
                                 </li>
                             </ul>

@@ -12,11 +12,20 @@ class HomeController extends Controller
     public function index()
     {
         $page = 'home';
-        $total = DB::table('books')->count();
+        $totalScolaire = DB::table('books')->where('category','Scolaire')->count();
+        $totalEnfant = DB::table('books')->where('category','Enfant')->count();
+        $totalReligieux = DB::table('books')->where('category','Religieux')->count();
+        $totalAutres = DB::table('books')->where('category','Autres')->count();
         $books = DB::table('books')->where('deleted_at', NULL)->where('isFavoris', 1)->orderBy('created_at', 'DESC')->get();
         return view('vitrine.index', [
             'page' => $page,
-            'books' =>$books
+            'books' =>$books,
+            'totalScolaire' => $totalScolaire,
+            'totalEnfant' => $totalEnfant,
+            'totalReligieux' => $totalReligieux,
+            'totalAutres' => $totalAutres
+
+
         ]);
     }
 }
